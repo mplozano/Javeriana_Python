@@ -1,0 +1,27 @@
+#Repetición -Ciclos- 
+#while
+limiter=0
+while limiter<10:
+    print(limiter)
+    limiter+=1 #el limitador es para modificar la variable
+    #y me de una lista de números, no solo evalue el 0
+#For
+#No tiene variable deinida, sino un rango
+#función rango= rango(n,m,p) n=min, m=max, p=paso 
+#-si uno pone solo un número en range, este asume que el min es 0 y el paso es de 1-
+for limiter in range(10):
+    print(limiter)
+
+#Ejemplo
+#construir una función que imprim los primeros n números pares
+bv=int(input("Ingresa cantiad de números pares deseados:"))
+for par in range(2,bv*2+1,2):
+    print(par)
+
+print("-----------------")
+
+#si lo hacemos con un while
+pares=2
+while pares <= bv*2:
+    print(pares)
+    pares +=2 #par += 2 == par = par + 2
