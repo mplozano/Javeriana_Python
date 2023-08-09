@@ -1,0 +1,13 @@
+#Ejemplo
+funci=int(input("Ingrese valor:"))
+for numero in range(funci):
+    if numero %3 ==0:
+        if numero %5 ==0:
+            print("Flip Flop")
+        else:
+            print("Flip")
+    else:
+        if numero %5 ==0:
+            print("Flop")
+        else:
+            print(numero)
