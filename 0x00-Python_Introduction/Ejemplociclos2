@@ -1,0 +1,9 @@
+va=int(input("ingrese número (solo 1):"))
+
+if (va==2):
+    print("TRUE")
+else:
+    if num%2==0:
+        print("FALSE")
+    else:
+        for div in range(3,va,2):
