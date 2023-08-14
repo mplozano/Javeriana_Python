@@ -1,0 +1,29 @@
+#Construcción de funciones
+
+#Una función es un conjunto de instrucciones que se pueden nombrar, recibir argumentos
+#y retorna un valor (el cual es un valor que puedo utilizar después en otras cosas).
+
+#cuando una función no tiene retorno sale "none"
+
+#--------------------
+
+#Para definir ina función se usa la plabra clave "def"
+#defnombrefuncion(argumento1,argumento2,argumentoN):
+#Para llamar la función definida se pone el "NomFuncion()" si no ponemos los parentesis
+#Python cree que es una variable.
+
+def greeting():
+    print("hello there")
+greeting() 
+
+#Ejemplo
+def completeDivision(numerator, denominator):
+    if denominator == 0:
+        print("ERROR")
+    else:
+        print("cociente:",numerator//denominator)
+        print("Residuo:",numerator%denominator)
+
+completeDivision(56,44)
+
+----------------------------------------
