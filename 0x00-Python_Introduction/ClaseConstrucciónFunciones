@@ -27,3 +27,24 @@ def completeDivision(numerator, denominator):
 completeDivision(56,44)
 
 ----------------------------------------
+#Ejemplo2
+
+def suma(sum1,sum2):
+    print("Resultado de la suma:", sum1+sum2)
+def resta(re1,re2):
+    print("Resultado de la resta:",re1-re2)
+def multiplicacion(mul1,mul2):
+    print("Resultado de la multiplicación:", mul1*mul2)
+def potencia (po1,po2):
+    print("Resultado de la potencia:",po1**po2)
+def residuo (rer1,rer2):
+    if rer2==0:
+        print("Error")
+    else:
+        print("Residuo de la división:",rer1%rer2)
+
+suma(3,7)
+resta(234,456)
+multiplicacion(2,5)
+potencia(45,2)
+residuo(23,76)
