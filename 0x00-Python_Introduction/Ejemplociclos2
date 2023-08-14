@@ -7,3 +7,16 @@ else:
         print("FALSE")
     else:
         for div in range(3,va,2):
+
+#ejemplo while2
+
+def imp_pares(npares):
+    numero=2 #número a imprimir
+    pares_impresos=0 #número de pares impresos
+    while pares_impresos<npares:
+        print(numero)
+        pares_impresos+=1
+        numero+=2
+imp_pares(4)
+
+#ejemplo for2
