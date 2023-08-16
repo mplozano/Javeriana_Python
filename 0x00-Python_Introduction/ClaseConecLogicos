@@ -1,0 +1,23 @@
+#Conectores lógicos
+
+#En los if podemos poner más de 1 condición agregando "and", para 
+#que sea TRUE todas las condiciones deben cumplirse.
+
+age=int(input("Ingrese su edad:"))
+if(age>=10 and age<=18):
+    print("El usuario tiene entre 10 y 18")
+else:
+    print("El usuario tiene menos de 10 o más de 18 años")
+
+#También se pueden hacer if con varias condiciones agregando "Or", 
+#para este solo una de las condiciones debe ser verdadera para
+#que sea TRUE.
+
+#EJEMPLO
+#frutas de supermercado: Pera 1K, Manzana 2k y Uvas 1.4k
+"""Construya una función que le saque un descuento del 35% al valor
+de la venta si el producto vendido es manzana y la cantidad vendida 
+es mayor a 35 o el mes agosto."""
+
+def fruit_discount(fruta, cantidad, mes, valor_unidad):
+    if fruta=="manzana" and cantidad<=35 or mes==8:
