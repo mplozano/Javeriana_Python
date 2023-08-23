@@ -1,0 +1,23 @@
+#Código para que me diga cuantas vocales tengo en una palabra
+def ConteoPalabras (pp):
+    palabra=""
+    vocalesa=0 #contador de vocales
+    vocalese=0
+    vocalesi=0
+    vocaleso=0
+    vocalesu=0
+    for char in pp:
+        if char == "a" or char == "A":
+            vocalesa+1
+        elif char == "e" or char == "E":
+            vocalese+1
+        elif char == "i" or char == "I":
+            vocalesi+1
+        elif char == "o" or char == "O":
+            vocaleso+1
+        elif char == "u" or char == "U":
+            vocalesu+1
+        
+palabra= input("ingrese palabra:")
+ConteoPalabras(palabra)
+print("Total a:",vocalesa, "Total e:", vocalese, "Total i:", vocalesi, "Total o:", vocalesi, "Total u:", vocalesu)
