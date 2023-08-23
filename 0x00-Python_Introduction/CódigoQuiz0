@@ -1,0 +1,6 @@
+#Código para imprimir los divisores de un número, incluyendo el mismo número
+def printDivisors(number):
+    for n in range (1, number+1):
+        if number %n ==0:
+            print(n)
+printDivisors(14)
