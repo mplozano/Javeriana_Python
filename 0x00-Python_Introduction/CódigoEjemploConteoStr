@@ -1,0 +1,20 @@
+#Código para que me diga cuantas vocales tengo en una palabra
+def ConteoPalabras (palabra):
+    vocalA=0 #contador de vocales
+    vocalE=0
+    vocalI=0
+    vocalO=0
+    vocalU=0
+    for char in palabra:
+        if char == "a" or char == "A":
+            vocalA+=1
+        elif char == "e" or char == "E":
+            vocalE+=1
+        elif char == "i" or char == "I":
+            vocalI+=1
+        elif char == "o" or char == "O":
+            vocalO+=1
+        elif char == "u" or char == "U":
+            vocalU+=1
+    print("# a:", vocalA,"# e:",vocalE,"# i:",vocalI,"# o:",vocalO,"# u:",vocalU)    
+ConteoPalabras("Mudskipper")
