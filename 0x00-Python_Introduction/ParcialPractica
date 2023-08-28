@@ -7,7 +7,7 @@ def calculateAverages():
     ContaB=0
     while True: #para realizar un ciclo infinito
         tipo = input("Ingrese tipo de compuesto (A, B, -1): ")
-        if tipo == "A" or tipo == "a": #Verifique que es A
+        if tipo == "A" or tipo == "a": #Verifique que es A, OJO cuando pongo un "or" me toca volver a poner todo el condicional (tipo == "a")
             concentracion = float(input("Ingrese valor concenteración: ")) #float para que lo convierta en decimal
             SumA = SumA + concentracion
             ContaA+=1 #contaA = ContaA +1
