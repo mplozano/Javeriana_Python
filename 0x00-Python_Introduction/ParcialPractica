@@ -1,0 +1,22 @@
+#Parcial de práctica
+#punto2
+def calculateAverages():
+    SumA=0
+    SumB=0
+    ContaA=0
+    ContaB=0
+    while True: #para realizar un ciclo infinito
+        tipo = input("Ingrese tipo de compuesto (A, B, -1): ")
+        if tipo == "A" or tipo == "a": #Verifique que es A
+            concentracion = float(input("Ingrese valor concenteración: ")) #float para que lo convierta en decimal
+            SumA = SumA + concentracion
+            ContaA+=1 #contaA = ContaA +1
+        elif tipo == "B" or tipo == "b": #Sino, verifique que es B
+            concentracion = float(input("Ingrese valor concenteración: ")) #float para que lo convierta en decimal
+            SumB = SumB + concentracion
+            ContaB+=1 #contaA = ContaA +1
+        elif tipo == "-1":
+            break
+    print("Promedio compuesto a: ", SumA/ContaA)
+    print("Promedio compuesto b: ", SumB/ContaB)
+calculateAverages()
