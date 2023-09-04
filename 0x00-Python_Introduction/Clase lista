@@ -37,3 +37,11 @@ def popString(lista_str, index):
     return lista_str
 print(popString(["Daniel", "Saray", "Mikol","Cami","Santi"], 0))
 ----------------------------------------
+#Función para que me sume todos los valores de una lista
+def sumLista(lista):
+    suma=0
+    for index in range (len(lista)):
+        suma= suma + lista[index] #así se pone para sacar un valor de la lista
+    return suma
+print(sumLista([2,4,1,6]))
+
