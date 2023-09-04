@@ -1,0 +1,39 @@
+#Clase listas
+
+#Definir una lista
+lista_num=[2,6,7,3,4,5,9,9,"aguacate",1,2,0]
+print("Lista original:", lista_num)
+
+#Reemplazar valor de la posición 3 por el valor "arroz"
+lista_num[3]="arroz"
+print("Lista mutada:",lista_num)
+
+#Agregar un elemento AL FINAL a mi lista mutada "Yuca"
+lista_num.append("Yuca")
+print("Lista mutada2:", lista_num)
+
+#Eliminar elementos por indice (el elemento en esa posición) -SOLO FUNCIONA CON NÚMEROS-
+# si lo dejo sin argumento elimina el último elemento 
+lista_num.pop(8)
+print("Lista mutada3:",lista_num)
+
+#Eliminar elementos por valor (solo elimina el primer valor que cumpla)
+lista_num.remove(9)
+print("Lista mutada4:", lista_num)
+--------------------------------------
+def add_number(lista_num, number):
+    lista_num.append(number)
+    return lista_num
+print(add_number([1,4,2,45,5,5,67,34,3,6,3,66,2,78],14))
+#le pongo print para ver si estaba bien, aunque hay que quitarsello después
+---------------------------------------
+def popString(lista_str, index):
+    if index<0:
+        lista_str.pop(0)
+    elif index>=len(lista_str):
+        lista_str.pop()
+    else:
+        lista_str.pop(index)
+    return lista_str
+print(popString(["Daniel", "Saray", "Mikol","Cami","Santi"], 0))
+----------------------------------------
