@@ -1,0 +1,15 @@
+#Parcial 1
+#punto 3
+"Código para que me diga en que posiciones se encuentra una base nitrogenada en una cadena de ADN"
+def showPositions(dnaString):
+    count=0
+    base=input("Ingrese base nitrogenada:")
+    if base !="A" and base !="T" and base !="C" and base !="G":
+        print("Base invalida")
+    else:
+        for index in range (len(dnaString)):
+            if base == dnaString[index]:
+                print("Base encontrada en la posición:", index)
+
+dnaString=input("Ingrese base cadena de ADN:")
+showPositions(dnaString)
