@@ -10,3 +10,45 @@ def calculateSqrt(number):
     return NumSqrt
 print(calculateSqrt(16))
 ---------------
+#Librería - Random
+import random
+"""Algoritmo que simula el juego piedra, papel o tijeras
+    Jugadores: Usuario y PC
+    Número de victorias para ganar: 3"""
+Opciones=["Piedra","Papel","Tijera"]
+nVictorias=0 #contadores
+nDerrotas=0
+nTurnos=1
+while nVictorias < 3 and nDerrotas < 3: 
+    OpcionPJ=int(input("Ingrese jugada 0 = piedra, 1= papel y 2= tijera:"))
+    OpcionPC=random.randint(0,2) #Uso de la librería 
+    print("Jugada elegida jugador:", Opciones[OpcionPJ])
+    print("Jugada elegida PC:", Opciones[OpcionPC])
+    if OpcionPJ == OpcionPC: #opción de empate
+        print("Empate")
+        print("Numero de partida:", nTurnos)
+        nTurnos+=1
+    elif OpcionPJ ==0 and OpcionPC==2: #Opciones ganador
+        print("Victoria")
+        print("Numero de partida:", nTurnos)
+        nTurnos+=1
+        nVictorias+=1
+    elif OpcionPJ ==1 and OpcionPC==0:
+        print("Victoria")
+        print("Numero de partida:", nTurnos)
+        nTurnos+=1
+        nVictorias+=1
+    elif OpcionPJ ==2 and OpcionPC==1:
+        print("Victoria")
+        print("Numero de partida:", nTurnos)
+        nTurnos+=1
+        nVictorias+=1
+    else: #Opcion de derrota
+        print("Derrota")
+        print("Numero de partida:", nTurnos)
+        nTurnos+=1
+        nDerrotas+=1
+if nVictorias==3: #Final
+    print("Ganaste el juego :)")
+else:
+    print("Mala Suerte, perdiste :(")
