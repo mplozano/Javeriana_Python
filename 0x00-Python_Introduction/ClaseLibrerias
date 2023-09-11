@@ -1,0 +1,12 @@
+#Uso librerías -Resumen- 
+
+import math #Importar la librería que vamos a utilizar
+def calculateSqrt(number):
+    """Esta funcion calcula la raíz cuadrada dde un número
+    Argumentos:
+    Numero [int]: El número que queramos calcular debe de ser positivo
+    Return[float]: Raíz del argumento"""
+    NumSqrt=math.sqrt(number)
+    return NumSqrt
+print(calculateSqrt(16))
+---------------
