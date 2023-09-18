@@ -1,6 +1,9 @@
 #Clase listas
 
 #Definir una lista
+#Las listras son:
+#Características= Editables(agragra y quitar elementos), ordenadas y mutables (Los elementos pueden cambiar)
+
 lista_num=[2,6,7,3,4,5,9,9,"aguacate",1,2,0]
 print("Lista original:", lista_num)
 
