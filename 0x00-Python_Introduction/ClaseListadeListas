@@ -1,0 +1,42 @@
+#Listas de listas
+#Hay una lista principal que contiene sublistas, cada lista es un indice de la lista grande.
+#para llamar los indices de las sublistas se llama primero el indice de la sublista
+#y luego el indice del elemento de la sublista.
+
+#List=[[15,12],[28,29,10],[1]]
+#la sublista [15,12] es el indice 0 de la lista principal, los siguientes son 1 y 2 respectivamente.
+#si quiero llamar el elemento "28" de la lista [1], se llama [1][0]
+#primero el indice de la sublista en la lista principal, y luego el indice del elemento en la sublista.
+
+#Lista de listas - Matrices
+#Para que una lista de listas sea matriz las sublistas deben tener la misma cantidad de elementos.
+#Cada fila de la matriz sera una lista, y las columnas nos indican el índice.
+
+#Ejemplo
+#Función que reciba una lista de listas como argumento y retorne una lista
+#que contenga las dimenciones de cada una de las sublistas.
+
+def sublistDimensions(listaPrincipal):
+"""Función que recibe listas de listas y me devuelve el número de elemenros de cada sublista en una lista"""
+    lista_Result=[]
+    for sublist in listaPrincipal:
+        lista_Result.append(len(sublist))
+    return lista_Result
+
+print(sublistDimensions([[12,13,14],[16,67,88,66],[23,24,46]]))
+
+----------------------------
+#Ejemplo listas de listas - matrices
+
+#Construya una función que reciba una lista de listas como argumento
+#y retorne si es o no una matriz
+
+def isMatrix(lista):
+    """Función que identifica si una lista de listas es una matriz o no"""
+    primera=len(lista[0]) #Identificar len de primera sublista
+    for sublista in lista: #recorrer todas las sublistas
+        if len(sublista) != primera: #comparar longitud de la primera con las demas
+            return False
+    return True #si todas las listas son iguales es matriz
+print(isMatrix([[2,3,4],
+                [2,3,5]]))
