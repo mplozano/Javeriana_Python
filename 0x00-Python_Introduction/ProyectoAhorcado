@@ -1,0 +1,54 @@
+#Código para jugar al ahorcado
+import random
+def generateWord():
+    """Función para sacar una palabra aleatoria de una lista
+    Argumento: ninguno
+    Return: palabra lista"""
+
+    wordList = ["Mamut", "Animado", "Emparejar", "Feudal",
+                "Despierto", "Creacion", "Vino", "Clinica",
+                "Comenzar", "Deslumbrante", "Cosmonauta", "Dejar",
+                "Asalto", "Canto", "Gatear", "Ampliar", "Pendenciero",
+                "Conversar", "Contagioso", "Lastima", "Hierba",
+                "Propietario", "Problema", "Perfil", "Audio",
+                "Escritorio", "Encantado", "Problematico", "Aguda",
+                "pies", "Saborear", "Ultimo", "Atencion",
+                "Scan", "Bullicioso", "Proporcionar", "Dañar",
+                "Flirtation", "Final", "Anormalidad", "Desastre",
+                "Cirugia", "Calcular", "Turbio", "Decimo", "Exuberante",
+                "Perros", "Traer", "Medusa", "Secreto", "Satisfactorio",
+                "Participa", "Caridad", "Minuto", "Condominio", "Brillo",
+                "Ambidiestro", "Cobrar", "Peludo", "Imponer", "Asombro",
+                "Cerveza", "Suceder", "Borde", "Optimo", "Pagano", "Carrito",
+                "Profundamente", "Conejos", "Acecho", "Planeta", "Puerto",
+                "Cadaver", "Incrustar", "Atornillar", "Abuela", "Asustar",
+                "Despiadado", "Suposicion", "Entrenar", "Aguanieve",
+                "Amenazante", "Telefono", "Permitir", "Proposito", "Oeste",
+                "Desolado", "Primer plano", "Decir", "Pais", "Reluciente",
+                "Oruga", "Incidir", "Shine", "Tocino", "Amigos", "Paloma",
+                "Aparicion", "Vegetal", "Shear", "Blanco", "Comenzar",
+                "Delfines", "Almacenar", "Desolacion", "Periodico",
+                "Reminiscente", "Cometa", "Perturbado", "Ancho", "Bullet",
+                "Analitica", "Iniciativa", "Adictivo", "Cautiverio",
+                "Contaminante", "Cazador", "Ladrillo", "Bombardero","Docena"]
+    nAleatorio=random.randint(0,len(wordList)-1) #variable para escoger un index
+    #aleatorio de la lista
+    return wordList[nAleatorio] #retorno de la palabra aleatoria
+
+def imprimirPalabra(ListaPalabra):
+    """Imprime en pantalla la información que debe ver el usuario.
+    argumento: 
+        listapalabra[list]: Lista que tiene caracteres por dentro
+        corresponde a la información que debe ver el usuario en pantalla
+    returno: None"""
+    for char in listaPalabra:
+        print (char,end="")
+    print()
+
+def hangman():
+    """Función para jugar el  ahorcado, el jugaodr cuenta con 6 intentos
+    Argumentos: None
+    Retorno: None"""
+    nIntentos=0 #Contador de intentos max 6
+    Palabra=generateWord()
+    listaVacia1=[].append
