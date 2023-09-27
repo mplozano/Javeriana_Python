@@ -31,9 +31,8 @@ def generateWord():
                 "Reminiscente", "Cometa", "Perturbado", "Ancho", "Bullet",
                 "Analitica", "Iniciativa", "Adictivo", "Cautiverio",
                 "Contaminante", "Cazador", "Ladrillo", "Bombardero","Docena"]
-    nAleatorio=random.randint(0,len(wordList)-1) #variable para escoger un index
-    #aleatorio de la lista
-    return wordList[nAleatorio] #retorno de la palabra aleatoria
+    nAleatorio= wordList[random.randint(0,len(wordList)-1)] #variable para escoger un index aleatorio de la lista
+    return nAleatorio #retorno de la palabra aleatoria
 
 def imprimirPalabra(ListaPalabra):
     """Imprime en pantalla la información que debe ver el usuario.
@@ -49,6 +48,21 @@ def hangman():
     """Función para jugar el  ahorcado, el jugaodr cuenta con 6 intentos
     Argumentos: None
     Retorno: None"""
+    #1.Preparacióm
     nIntentos=0 #Contador de intentos max 6
-    Palabra=generateWord()
-    listaVacia1=[].append
+    Palabra=generateWord() #Escoger la palabra aletoria
+    listaPalabra=[] #Casillas para mostrar al usuario, se llena con "*"
+    letrasUsadas=[] #Lista con las letras usadas por el jugador
+    #----------------------
+    #Construcción de lista
+    for i in range(len(Palabra)):
+        listaPalabra.append("*")
+    #----------------------
+    #Desarrollo
+    while nIntentos < 6: #El while se para cuando hay más de 6 intentos
+        letra=input("Ingrese una letra: ")
+        if letra in letrasUsadas: #Verificar si la letra se encuentra en la lista de letras usadas
+            print("Letra ya utilizada, ingrese otra por favor")
+        else: #empieza un if anidado
+            if letra in Palabra:
+                for x in #for para encontrar el inex y que me reemplace el "*" con la letra
