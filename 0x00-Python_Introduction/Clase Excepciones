@@ -45,3 +45,13 @@ números.
 • En caso de que el dato a sumar no sea un número, la función deberá
 proseguir con el siguiente elemento. Utilice (except TypeError)"""
 
+def safeSumList(lista):
+    suma=0
+    for index in range (len(lista)):
+        try:
+            suma= suma + lista[index]
+        except TypeError:
+            continue #Función para ciclos, funciona para ignorar un valor y seguir con lo suyo.
+    return suma
+print(safeSumList([2,"a",5,7,2,"w","w",6]))
+
