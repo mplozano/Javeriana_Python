@@ -66,3 +66,5 @@ def hangman():
         else: #empieza un if anidado
             if letra in Palabra:
                 for x in #for para encontrar el inex y que me reemplace el "*" con la letra
+                     if x == letra:
+                        listaPalabra[x]=letra
