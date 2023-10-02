@@ -1,0 +1,47 @@
+#Excepciones
+"""Básicamente es decirle al compu que hacer si se presenta un error"""
+-------------------------
+#Ejemplo 0 
+"""Construya una función en Python que solicite al usuario ingresar dos números
+y retorne los resultados de las operaciones básicas en una lista.
+Requerimientos:
+• Prototipo: def safeOperations().
+• La función no recibe argumentos.
+• La función deberá solicitar al usuario que ingrese dos números enteros, el
+primero corresponde al dividendo y el segundo corresponde al divisor.
+• La función debe seguir trabajando incluso si el usuario ingresa valores
+diferentes a números (ej: “A”, “ ”, etc.), en estos casos deberá volver a
+solicitar el valor. Utilice except ValueError.
+• En caso de que el divisor sea 0, la función deberá informarlo mediante una
+excepción (ZeroDivisionError) y deberá solicitar un nuevo número"""
+
+def safeOperations():
+    try:
+        num1=int(input("Ingrese primer número:"))
+        num2=int(input("Ingrese segundo número: "))
+        division=num1/num2
+    except ValueError:
+        print("Ingrese un NÚMERO")
+        num1=int(input("Ingrese primer número:"))
+        num2=int(input("Ingrese segundo número: "))
+    except ZeroDivisionError:
+        print("División entre 0, ingrese OTRO número")
+        num1=int(input("Ingrese primer número:"))
+        num2=int(input("Ingrese segundo número: "))
+    resultado=[num1+num2,num1-num2,num1*num2,num1/num2]
+    return resultado
+
+print(safeOperations())
+--------------------------
+#Ejemplo 1
+"""Construya una función en Python que reciba una lista como argumento, la
+función deberá retornar la suma total de sus elementos.
+Requerimientos:
+• Prototipo: def safeSumList(lista).
+• La función recibe un argumento “lista” que puede contener cualquier tipo de
+datos.
+• La función deberá sumar los datos que contiene la lista siempre que sean
+números.
+• En caso de que el dato a sumar no sea un número, la función deberá
+proseguir con el siguiente elemento. Utilice (except TypeError)"""
+
