@@ -1,0 +1,40 @@
+#Clase de diccionarios
+
+"""Contenedor de datos (dict)
+- Tamaño variable
+- Contener: int, float, bool, str, list, etc
+- se usa con llaves {}
+- Cada elemento se compone: Key:value
+- key: nombre de los valores
+- valores: valores xd
+- Dentro de diccionarios podemos poner más diccionarios"""
+
+"""Características:
+-Desordenadas: no tienen un orden, por lo que no lo llamamos por index
+-Las key no pueden ser valores mutables como las listas,
+vamos a usar solo strings
+-Mutables: PERO SOLO LOS VALUES
+-Modificables"""
+
+#-----------------
+#Hacer recorrido en Diccionarios
+
+#for key, value in diccionario.items():
+#print("el elemento",key,"tiene como valor",end="")
+
+#------------------
+#Asignar un nuevo value a una key
+
+#diccionario["Marco"]=9
+
+#------------------
+#Adiciona elementos
+
+#adicionamos un diccionario al diccionario
+#diccionario["nombredenuevakey"]={"key":"value"} 
+
+#------------------
+#Adicionar elementos
+
+#del diccionario["nombrekeyaeliminar"]
+#diccionario.pop("nombrekeyaeliminar")
