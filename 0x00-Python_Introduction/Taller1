@@ -147,6 +147,94 @@ print(compareADN("ATTTGCAAATTA","ATTTGCAAATTA"))
 #----------------------------------------------
 #Punto 4
 
+"""Construya una función en Python que reciba dos argumentos, el primero corresponde a una lista de cadenas
+de texto que corresponden a hélices de ADN y el segundo corresponde a un patrón. La función deberá retornar
+una lista que contenga las cadenas de ADN complementarias de cada uno de los elementos del primer argumento
+que tengan un parecido mayor o igual al 75% con el patrón.
+
+    •	Prototipo de la función: def complement_DNA_list(list_DNA, pattern).
+    •	La función recibe 2 argumentos.
+    •	El primer argumento deberá ser verificado, si su tipo es diferente a una lista, la función 
+        deberá retornar -1.
+    •	En caso de que el argumento sea una lista, su contenido puede ser de cualquier tipo; los valores
+        tipo cadena de texto contenidos en la lista corresponden a secuencias de ADN; en consecuencia, 
+        siempre estarán constituidas por combinaciones de los caracteres “A”, “T”, “C” y “G”.
+    •	El segundo argumento deberá ser verificado, si su tipo es diferente a una cadena de texto, 
+        la función deberá retornar -2; en caso contrario, siempre será construido con combinaciones
+        de los caracteres “A”, “T”, “C” y “G”.
+    •	La función deberá almacenar las cadenas de ADN complementarias en la lista complement_list.
+    •	La función deberá recorrer cada uno de los elementos de la lista list_DNA y deberá compararlos con el patrón.
+        o	Para cada elemento que tenga un parecido mayor o igual al 75% con el patrón, la función deberá
+            construir y almacenar en complement_list la cadena de ADN complementaria para cada uno de estos
+            elementos.
+        o	Si el parecido entre la cadena de ADN a revisar en el argumento list_DNA y el patrón es menor al
+            75%, la función deberá almacenar el string “Sin Complemento” en la lista complement_list.
+        o	En caso de que el elemento a revisar tenga un tipo diferente a STR, la función deberá almacenar el
+            string “No es ADN” en la lista complement_list."""
+
+def compareADN(dna_helix, dna_pattern):
+    """Función que compara una cadena de ADN con una cadena molde, su resultado
+    es el porcentaje de cuan parecido son ambas cadenas.
+        Argumentos: 2 str, el primer string representa la cadena de ADN a comparar
+        y el segundo la cadena molde con la que sera comparada.
+        Retorno: float, porcentaje de parecido de ambas cadenas.
+        """
+    porcentaje=0 #variable que contendra el float del retorno
+    #verificaciones
+    if len(dna_helix)==0:
+        return -1
+    if len(dna_helix)!=len(dna_pattern): #si las cadenas son de la misma longitud
+        porcentaje=0.00
+        return porcentaje
+    parecido=0 #Variable que contara las coincidencias
+    for i in range(0,len(dna_helix)): #se mueva el index en un rango de 0 a la longitud de las cadenas
+        if dna_helix[i] == dna_pattern[i]: #comparación caracteres de los index recorridos
+            parecido+=1
+    porcentaje=(parecido/len(dna_helix))
+    return porcentaje
+
+#----------------------------
+
+def complement_DNA_list(list_DNA, pattern):
+    """Función que compara cadenas de ADN con una cadena patrón, aquellas con más
+    de 0.75 (75%) de parecido a la cadena patrón son convertidas en su cadena complementaria.
+        Argumentos: recibe 2 argumentos; el primero es una lista (list), esta contiene
+        diferentes cadenas de ADN a evaluar; el segungo es una cadena de texto (str),
+        este toma el papel de comparador para las otras cadenas.
+        Retorno: lista (list), contiene las cadenas complementarias. Aquellas cadenas
+        que no cumplieron los requisitos para convertirlas en su complementaria saldrá
+        "Sin complemento" 
+        """
+    #Verificaciones
+    if type(list_DNA) != list:
+        return -1
+    if type(pattern) != str:
+        return -2
+    complement_list=[] #lista vacía del retorno
+    for elem in list_DNA:
+        if compareADN(elem,pattern) >= 0.75: #evaluar el parecido
+            complemento="" #contador que contendra la cadena complementaria
+            for char in elem:
+                if char == "A":
+                    char="T"
+                    complemento += char
+                elif char == "T":
+                    char="A"
+                    complemento += char
+                elif char == "C":
+                    char = "G"
+                    complemento += char
+                elif char == "G":
+                    char = "C"
+                    complemento += char
+            complement_list.append(complemento)
+        else:
+            complement_list.append("Sin complemento")
+    return complement_list
+
+print(complement_DNA_list(["AAGGTTCC","AATTGGTT","ATCGTAGC","AAGTTTCG","AAGGTTCCTTAA"], "AAGGTTCC"))
+
+
 
 
 
