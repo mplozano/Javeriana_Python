@@ -1,0 +1,49 @@
+#Taller 1
+#-------------------------------------------
+#Punto 1
+"""[1]	Construya una función que reciba una lista como argumento, la función deberá recorrer la lista que corresponde 
+a los Kg de contaminación ambiental en algunas ciudades del valle. La función deberá retornar una lista con la posición
+en la que se encuentra la ciudad con mayor contaminación ambiental. En caso de que existan dos o más ciudades con el 
+mismo valor más alto de contaminación, se deberá anexar sus posiciones en orden de aparición.
+Requerimientos:
+•	Prototipo de la función: def mostContaminated(city_list).
+•	La función recibe un solo argumento “city_list”, este argumento debe ser verificado, en caso de que no
+sea una lista, la función deberá retornar -1. Cada uno de los elementos de la lista representa la 
+contaminación ambiental de algunas ciudades del valle en Kilogramos, cada valor deberá ser verificado, 
+en caso de que su tipo sea diferente a un número, deberá ser ignorado.
+•	La función deberá retornar una lista con las posiciones de la ciudad en el argumento que tenga la mayor
+cantidad de contaminación.
+•	EJ:
+o	Argumento: [23, 43, "Hola", 1] → Retorno: [1]
+o	Argumento: [23, 43, "Casa", 43] → Retorno: [1, 3]
+o	Argumento: [23, 43, "Hola", 43, "55"] → Retorno: [1, 3]"""
+
+def mostContaminated(city_list):
+    """Función que recibe una lista con los kg de contaminación de ciudades y retorna
+    cual de estas es la más contaminada.
+        Argumentos: Lista, donde cada posición representa una ciudad diferente y
+        cada valor es kg de contaminación.
+        Retorno: Lista, el o los elementos representan la ciudad/es con más 
+        contaminación (Mayor valor númerico)."""
+    if type(city_list) != list: #Verificación si el argumeto es lista
+        return -1
+    index_maximo=[] #lista que guardará el index del mayor valor
+    maximo= -1 #Contador que cambia al mayor valor, es -1 para que siempre tome el primer valor de la lista 
+    for i in range(len(city_list)): #For para sacar el número mayor
+        try: #creamos una excepción para que ignore el elemento que no es int o float
+            if city_list[i] > maximo:
+                maximo=city_list[i]
+        except TypeError:
+            continue
+    for i in range(len(city_list)): #For para crear la lista de index
+        try: #Lo mismo que el anterior
+            if city_list[i]==maximo:
+                index_maximo.append(i)
+        except TypeError:
+            continue
+    return index_maximo
+
+print(mostContaminated([23, 43, "Hola", 43, "55"]))
+
+#----------------------------------------------------
+#Punto 2
