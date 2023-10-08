@@ -99,3 +99,54 @@ def countDNA(dna_string):
 
 print(countDNA("ATCGAAATTTCCGA"))
 
+#-----------------------------------------------
+#Punto 3
+
+"""Construya una función en Python que reciba dos argumentos, el primero corresponde a una cadena de texto
+que corresponde a una hélice de ADN y el segundo corresponde a un patrón. La función deberá retornar un número
+decimal que corresponde al porcentaje de parecido entre la cadena de ADN y el patrón.
+
+Requerimientos
+    •	Prototipo de la Función: def compareADN(dna_helix, dna_pattern).
+    •	La función recibe dos argumentos.
+    •	El primer argumento “dna_helix” siempre va a ser una cadena de texto que estará compuesta 
+        por distintas combinaciones de los caracteres “A”, “T”, “G”, “C”.
+    •	El segundo argumento “dna_pattern” tiene características similares al primer argumento.
+    •	Si la cadena de ADN está vacía o la longitud del patrón es igual a cero, la función 
+        deberá retornar -1.
+    •	Si la longitud de la cadena de ADN es diferente a la longitud del patrón, su parecido 
+        será del 0%.
+    •	La función deberá recorrer cada uno de los caracteres de la cadena de ADN en el primer 
+        argumento y deberá compararlos con cada uno de los caracteres del patrón para determinar 
+        su parecido.
+    •	La función deberá retornar el parecido entre la lista de ADN y el patrón."""
+
+def compareADN(dna_helix, dna_pattern):
+    """Función que compara una cadena de ADN con una cadena molde, su resultado
+    es el porcentaje de cuan parecido son ambas cadenas.
+        Argumentos: 2 str, el primer string representa la cadena de ADN a comparar
+        y el segundo la cadena molde con la que sera comparada.
+        Retorno: float, porcentaje de parecido de ambas cadenas.
+        """
+    porcentaje=0 #variable que contendra el float del retorno
+    #verificaciones
+    if len(dna_helix)==0:
+        return -1
+    if len(dna_helix)!=len(dna_pattern): #si las cadenas son de la misma longitud
+        porcentaje=0.00
+        return porcentaje
+    parecido=0 #Variable que contara las coincidencias
+    for i in range(0,len(dna_helix)): #se mueva el index en un rango de 0 a la longitud de las cadenas
+        if dna_helix[i] == dna_pattern[i]: #comparación caracteres de los index recorridos
+            parecido+=1
+    porcentaje=(parecido/len(dna_helix))
+    return porcentaje
+
+print(compareADN("ATTTGCAAATTA","ATTTGCAAATTA"))
+
+#----------------------------------------------
+#Punto 4
+
+
+
+
