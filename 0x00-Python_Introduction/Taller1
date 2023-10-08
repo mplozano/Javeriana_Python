@@ -47,3 +47,55 @@ print(mostContaminated([23, 43, "Hola", 43, "55"]))
 
 #----------------------------------------------------
 #Punto 2
+"""[2]	Construya una función en Python que recorra una cadena de texto que representa una hélice de ADN, 
+cuente la cantidad de bases nitrogenadas por cada tipo y retorne una lista que contenga la cantidad de bases 
+nitrogenadas en la cadena de texto por cada tipo.
+
+Requerimientos:
+    •	Prototipo de la función: def countDNA(dna_string).
+    •	La función recibe un solo argumento: “adn_string” representa una hélice de ADN y debe ser verificado: 
+        si su tipo es diferente a string, la función deberá retornar -1; en caso contrario, el argumento siempre 
+        contiene combinaciones de los caracteres “A”, “G”, “T”, “C” y puede ser de cualquier longitud.
+    •	La función debe contar cuantos elementos existen de cada base nitrogenada.
+    •	La función debe mostrar en pantalla la cantidad de elementos de cada base nitrogenada.
+    •	La función debe mostrar la cantidad total de bases nitrogenadas en pantalla.
+    •	La función debe retornar una lista que contenga la cantidad de cada una de las bases nitrogenadas en
+        la cadena de ADN con la siguiente estructura:
+            o	bases_list = [cantidad_A, cantidad_T, cantidad_C, cantidad_G]"""
+
+def countDNA(dna_string):
+    """Recorre una cadena de ADN y cuenta cuantas bases hay por cada tipo
+    (A,T,C,G).
+    Argumentos: str, Cadena de texto que representa una cadena de ADN.
+    Retorno: list, Una lista con la cantidad de bases por cada tipo en 
+    orden A, T, C, G."""
+    if type(dna_string) != str: #verificación si es arg es str
+        return -1
+    contaA=0 #Contadores de bases
+    contaT=0
+    contaC=0
+    contaG=0
+    contaTotal=0 #Contador total de bases
+    for i in dna_string:
+        if i == "A" or i == "a":
+            contaA+=1
+            contaTotal+=1
+        elif i == "T" or i == "t":
+            contaT+=1
+            contaTotal+=1
+        elif i == "C" or i == "c":
+            contaC+=1
+            contaTotal+=1
+        elif i == "G" or i == "g":
+            contaG+=1
+            contaTotal+=1
+    print("Cantidad de Adenina:", contaA)
+    print("Cantidad de Timina:",contaT)
+    print("Cantidad de Citocina:", contaC)
+    print("Cantidad de Guanina:", contaG)
+    print("Cantidad total de bases nitrogenadas:", contaTotal)
+    bases_list=[contaA,contaT,contaC,contaG]
+    return bases_list
+
+print(countDNA("ATCGAAATTTCCGA"))
+
