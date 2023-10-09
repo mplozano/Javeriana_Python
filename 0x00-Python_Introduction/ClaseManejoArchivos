@@ -59,3 +59,48 @@ except FileNotFoundError:
 lineToWrite="\nGeneral Kenobi" #"\n" significa nueva linea
 file.write(lineToWrite)
 file.close
+
+#----------------------------------
+#Ejemplo 1
+import random
+
+def generateADNoARN(dnaLen, tipo):
+    if dnaLen < 0:
+        return -1
+
+    dnaString = ""
+
+    for i in range(dnaLen):
+        randomNumber = random.randint(1, 4)
+        if randomNumber == 1:
+            dnaString += "A"
+        elif randomNumber == 2:
+            dnaString += "C"
+        elif randomNumber == 3:
+            dnaString += "G"
+        else:
+            if tipo == 1: #1=ADN
+                dnaString += "T"
+            else:
+                dnaString += "U"
+
+    return dnaString
+
+def archivoADNoARN(nCadenas):
+    nombreFile=input("Nombre de archivo: ")
+    nombreFile=nombreFile + ".txt"
+    stringWrite=""
+    try:
+        file=open(nombreFile,"w")
+    except FileNotFoundError:
+        print("Archivo no existe")
+    for i in range(nCadenas):
+        opcion= random.randint(1,2) #1=ADN 2=ARN
+        longitud= random.randint(16,40)
+        string=generateADNoARN(longitud, opcion)
+        stringWrite+= string + "\n"
+    file.write(stringWrite)
+    file.close()
+    print("Archivo", nombreFile, "generado")
+
+archivoADNoARN(10)
