@@ -1,0 +1,61 @@
+#Clase manejo de archivos
+
+#Abrir archivos
+"""Para abrir archivos en python utilizamos la función "open" 
+        Podemos asignar una variable a este archivo.
+        Todo lo va a leer como un string.
+        Para poder abrir el archivo se necesita saber la ubicación+nombre+extensión.
+            Ejemplo: C:\documentos\ejemplo.txt
+        Si el archivo esta guardado en la misma carpeta que el modulo donde se esta trabajando
+        solo se escribe el nombre del archivo.
+        Se llama de la siguiente forma:
+            file=open("Nombre archivo","metodo de apertura")"""
+#Cerrar archivos
+"""Para cerrar archivos se después de utilizarse se utiliza .close()
+        Siguiendo el ejemplo anterior:
+             file=open("Nombre archivo","metodo de apertura")
+             file.close() #cierra el archivo"""
+#Métodos de apertura
+##Leer - read ("r")
+"""Lee la información de archivos linea por linea, pero no es capaz de modificarlos"""
+try:
+    file=open("Archivo Ejemplo Lectura 2.txt","r")
+except FileNotFoundError:
+    print("File does not exist")
+print(file.read()) #Va a imprimir todo lo que contiene el archivo
+print(file.read(5)) #Ahora solo va a leer 5 caracteres del archivo
+
+### readline 
+print(file.readline()) #Solo lee la primera linea del archivo
+print(file.read(5)) #Solo lee los primeros 5 caracteres de la primera linea
+
+### readlines
+"""Este método devuelve en forma de lista todas las lineas del archivo"""
+print(file.readlines)
+#A esta no se le puede poner números para que lea solo unos caracteres
+
+##Escribir - write ("w")
+"""Escribe información sobre un archivo, pero al hacerlo REEMPLAZA la información que
+anteriormente habia en este.
+Si el nombre del archivo no existe, crea un nuevo archivo con el nombre indicado."""
+try:
+    file=open("Archivo Ejemplo Lectura 2.txt","w")
+except FileNotFoundError:
+    print("File does not exist")
+
+lineToWrite="Hola a todos" #Puede ser de cualquier longitud
+file.write(lineToWrite)
+file.close
+
+##Anexar - append ("a")
+"""Escribe información sobre el archivo y NO reemplaza la información ya contenida
+en el archivo. 
+La información nueva se anexa al final del documento."""
+try:
+    file=open("Archivo Ejemplo Lectura 2.txt","a")
+except FileNotFoundError:
+    print("File does not exist")
+
+lineToWrite="\nGeneral Kenobi" #"\n" significa nueva linea
+file.write(lineToWrite)
+file.close
