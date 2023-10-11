@@ -92,6 +92,94 @@ def countDNA(stringList):
 print(countDNA(["ARROZ","HABICHUELAS","ATTCGGAT","AUUGCGU","AGCTAGCT","YO"]))
 
 #----------------------------------------
+#Punto c
+
+"""Construya una función en Python que reciba un argumento que corresponde a una lista. La función deberá retornar
+una lista que contenga las cadenas genéticas que genere como se explica en los requerimientos.
+
+Requerimientos:
+  •	Prototipo de la función: def genetic_helixes(db_list).
+  •	La función recibe un argumento: “db_list”.
+  •	Si el valor recibido en el argumento es diferente de una lista, la función deberá retornar -1.
+  •	Si el valor recibido por el argumento es una lista vacía, la función deberá retornar -1.
+  •	La función deberá recorrer cada uno de los elementos de la lista db_list y deberá determinar si 
+    dicho elemento corresponde a una cadena de ADN o de ARN.
+  •	La función deberá generar y almacenar cadenas genéticas con base en cada uno de los elementos en 
+    la lista db_list según las reglas de generación.
+  Reglas de generación:
+    o	Si el elemento en la lista genetic_list es una cadena de ADN, la función deberá construir la cadena 
+      de ADN complementaria a esta.
+    o	Si el elemento en la lista genetic_list es una cadena de ARN, la función deberá construir la cadena 
+      de ARN inversa a esta según las siguientes reglas :
+        -	“Adenina” se convierte en “Guanina”
+        -	“Uracilo” se convierte en “Citocina”
+        -	“Citosina” se convierte en “Adenina”
+        -	“Guanina” se convierte en “Uracilo”
+
+  •	La función deberá almacenar cada una de las cadenas generadas en la lista genetic_results.
+  •	En caso de que el elemento a revisar en la lista no corresponda a una cadena de ADN o ARN, la función
+    deberá agregar: “N/A” a genetic_results.
+  •	La función deberá retornar la lista genetic_results."""
+
+def genetic_helixes(db_list):
+    """Función que dentro de una lista reconoce cuales cadenas son de ADN, ARN o no son ninguna
+    de las anteriores, retorna otra lista con la cadena complementaria de los elementos que eran
+    ADN, una cadena con la relación de bases invertida en ARN y "N/A" a aquellas que no sean
+    cadenas de ADN o ARN.
+    Argumentos:
+        db_list[list]: Lista que contiene cadenas de texto, pueden ser ADN, ARN u otros.
+    Retorno:
+        genetic_results[list]: Lista que contiene cadenas de texto, para los elementos ADN
+        retona su cadena complementaria, para ARN una cadena con la relación de bases invertida
+        y para "otros" es "N/A".
+        """
+    #Verificaciones
+    if type(db_list) != list:
+        return -1
+    if len(db_list) == 0:
+        return -1
+    genetic_results=[] #Lista vacía de retorno
+    for elem in db_list:
+        if "A" not in elem or "C" not in elem or "G" not in elem: #Solo revisa por las bases en común entre ADN y ARN
+            genetic_results.append("N/A")
+        else:
+            if "U" in elem: #Si tiene U es ARN
+                complementARN=""
+                for char in elem:
+                    if char == "A":
+                        char="G"
+                        complementARN += char
+                    elif char == "U":
+                        char="C"
+                        complementARN += char
+                    elif char == "C":
+                        char = "A"
+                        complementARN += char
+                    elif char == "G":
+                        char = "U"
+                        complementARN += char
+                genetic_results.append(complementARN)
+            else: #Si no tiene es ADN
+                complementADN="" 
+                for char in elem:
+                    if char == "A":
+                        char="T"
+                        complementADN += char
+                    elif char == "T":
+                        char="A"
+                        complementADN += char
+                    elif char == "C":
+                        char = "G"
+                        complementADN += char
+                    elif char == "G":
+                        char = "C"
+                        complementADN += char
+                genetic_results.append(complementADN)
+    return genetic_results
+
+print(genetic_helixes(["ATTGC","AUCG","HOLA","ADIOS"]))
+
+#--------------------------------------------
 
 
 
