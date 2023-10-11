@@ -46,5 +46,52 @@ def determineHelix(string):
 print(determineHelix("ATTGCGAT"))
 
 #-----------------------------------------------
+#Punto b
+
+"""Construya una función en Python que recorra una lista de cadenas de texto; la función deberá contar todas 
+las bases nitrogenadas solamente de los elementos que correspondan a cadenas de ADN.
+
+Requerimientos:
+  •	Prototipo de la función: def countDNA(stringList).
+  •	La función recibe un argumento “stringList” que corresponde a una lista de cadenas de texto (str), 
+    dichas cadenas de texto ser o no ser cadenas de ADN.
+  •	La función deberá contar el total de las bases nitrogenadas SOLAMENTE de los elementos que correspondan
+    a cadenas de ADN.
+  •	Si el elemento de la lista no corresponde a una cadena de ADN, la función deberá ignorarla.
+  •	La función deberá retornar una lista que contenga la cantidad de bases de Adenina, Guanina, Timina y Citocina 
+    respectivamente."""
+
+def countDNA(stringList):
+    """Función que encuentra dentro de una lista de [str] cuales son cadenas de ADN y cuenta
+    cuanta cantidad hay de cada base nitrigenada en solo esas cadenas de texto.
+    Argumentos:
+        stringList[list]: Lista que contiene varias cadenas de texto, pueden ser de ADN o no.
+    Retorno:
+        [list]: Retorna una lista con la cantidad de Adenina, Guanina, Timina y Citocina, 
+        en ese orden."""
+    conA=0 #Contadores
+    conT=0
+    conC=0
+    conG=0
+    for elem in stringList:
+        if "A" not in elem or "T" not in elem or "C" not in elem or "G" not in elem: #Sacamos el no ADN
+            continue #Ignoramos la cadenas que no son ADN
+        else: #Si es ADN empezamos a contar bases
+            for char in elem:
+                if char == "A":
+                    conA+=1
+                elif char == "T":
+                    conT+=1
+                elif char == "C":
+                    conC+=1
+                elif char == "G":
+                    conG+=1
+    listnBases=[conA,conG,conT,conC] #Lista de retorno
+    return listnBases
+
+print(countDNA(["ARROZ","HABICHUELAS","ATTCGGAT","AUUGCGU","AGCTAGCT","YO"]))
+
+#----------------------------------------
+
 
 
