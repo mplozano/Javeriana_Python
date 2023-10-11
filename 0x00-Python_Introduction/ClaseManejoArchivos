@@ -65,6 +65,11 @@ file.close
 import random
 
 def generateADNoARN(dnaLen, tipo):
+    """Función que crea aleatoriamente cadenas de ADN o ARN, se puede escoger el largo
+       y tipo de cadena requerido.
+       Argumentos: 2 int, primero argumento es un número que indica el largo deseado para la cadena y
+       el segundo indica el tipo de cadena deseada (1= ADN y 2= ARN).
+       Retorno: str, retorna una cadena de texto, la cual representa la cadena de ADN o ARN.""" 
     if dnaLen < 0:
         return -1
 
@@ -87,6 +92,11 @@ def generateADNoARN(dnaLen, tipo):
     return dnaString
 
 def archivoADNoARN(nCadenas):
+    """Función que guarda en un archivo de texto la cantidad deseada de cadenas de ADN o ARN,
+       las cuales se generan de forma aleatoria, la probailidad de que tipo va a ser la cadena
+       es de 50-50.
+       Argumento: int, Número que representa la cantidad de cadenas que deseamos crear.
+       Retorno: esta función no presenta retorno.""" 
     nombreFile=input("Nombre de archivo: ")
     nombreFile=nombreFile + ".txt"
     stringWrite=""
