@@ -1,0 +1,50 @@
+#Parcial 2
+
+#Punto a
+"""Construya una función en Python que reciba un argumento que corresponde a una cadena de texto que puede
+ser una cadena de ADN, de ARN o ninguna de las anteriores, la función deberá retornar 1 si el argumento
+corresponde a una cadena de ADN, 2 si es ARN o -1 si es algo diferente a las opciones anteriores.
+
+Requerimientos:
+  •	Prototipo: def determineHelix(string).
+  •	La función recibe un solo argumento: “string”.
+  •	Si el argumento ingresado es diferente a un str, la función deberá retornar -1.
+  •	Si el argumento ingresado es un str vacío, la función deberá retornar -1.
+  •	La función deberá determinar si el texto ingresado es una cadena de ADN o ARN.
+  •	Si el texto ingresado corresponde a una cadena de ADN, la función deberá retornar 1.
+  •	Si el texto ingresado corresponde a una cadena de ARN, la función deberá retornar 2.
+  •	Si el texto ingresado no corresponde a una cadena de ADN o a una cadena de ARN, la función deberá retornar -1."""
+
+def determineHelix(string):
+    """Función que identifica si el string entregado corresponde a una
+    cadena de ADN, ARN u otra cosa.
+    Argumentos:
+        string[str]: cadena de texto.
+    Retorno:
+        1[int]: Si el argumento corresponde a una cadena de ADN.
+        2[int]: Si el argumento corresponde a una cadena de ARN.
+        -1[int]: Si el argumento no es [str], si el argumento es un [str] vacío
+        o si "string" no es cadena de ADN o ARN.
+        """
+    #Verificaciones
+    if type(string) != str:
+        return -1
+    if len(string) == 0:
+        return -1
+    #Procedimiento
+    charValidos=["A","T","C","G","U"] #Lista char validos
+    for char in string:
+        if char not in charValidos: #not in identifica si char esta en la lista charValidos
+            return -1
+        else:
+            continue #Aunque encuentre uno que este en charValidos va a revisar todos los char
+    if "U" in string: #Si tiene uracilo es ARN
+        return 2
+    else: #Si no lo tiene es ADN
+        return 1
+
+print(determineHelix("ATTGCGAT"))
+
+#-----------------------------------------------
+
+
