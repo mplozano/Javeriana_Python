@@ -1,0 +1,28 @@
+import random
+
+def generateRandomDNA(dnaLen):
+    """This function creates a random DNA string with lenght
+    defined by dnaLen.
+    Args:
+        dnaLen[int]: Lenght of the desired DNA string.
+    Return:
+        -1[int]: If lenght < 0.
+        dnaString[str]: Randomly generated DNA string."""
+
+    if dnaLen < 0:
+        return -1
+
+    dnaString = ""
+
+    for i in range(dnaLen):
+        randomNumber = random.randint(1, 4)
+        if randomNumber == 1:
+            dnaString += "A"
+        elif randomNumber == 2:
+            dnaString += "C"
+        elif randomNumber == 3:
+            dnaString += "G"
+        else:
+            dnaString += "T"
+
+    return dnaString
