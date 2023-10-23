@@ -1,0 +1,26 @@
+#Mi primer código en R :p
+
+calculador<-function(num){#Para escoger una operación a realizar
+  if (num ==1){
+   return(1+2)
+  }
+  else if (num ==2){
+    return(1-2)
+  }
+  else if (num ==3){
+    return(1*2)
+  }
+  else if (num ==4){
+    return(1/2)
+  }
+  else if (num ==5){
+    return(1%%2)
+  }
+}
+calculador(num=1)
+
+gringos<-function(fah){#Convierte Fahrenheit en celcius
+  return((fah-32)*5/9)
+}
+
+gringos(fah=72)
