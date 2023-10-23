@@ -24,3 +24,32 @@ gringos<-function(fah){#Convierte Fahrenheit en celcius
 }
 
 gringos(fah=72)
+
+#Ejercicios con condicionales
+
+#Función que me convierte de cm a otras unidades de medición
+
+medidascm<-function(cm,num){
+  if (num==1){
+    return(print(paste("La medida", cm, "en cm equivale a",
+                 cm/100, "en metros")))
+  }
+  else if (num==2){
+    return(print(paste("La medida", cm, "en cm equivale a",
+                 cm/100000, "en kilometros")))
+  }
+  else if (num==3){
+    return(print(paste("La medida", cm, "en cm equivale a",
+                 cm/30.48, "en pies")))
+  }
+  else if (num==4){
+    return(print(paste("La medida", cm, "en cm equivale a",
+                 cm/2.54, "en pulgadas")))
+  }
+  else if (num==5){
+    return(print(paste("La medida", cm, "en cm equivale a",
+                 cm/91.44, "en yarda")))
+  }
+}
+
+medidascm(cm=3.14,num=4)
