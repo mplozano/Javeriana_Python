@@ -1,0 +1,31 @@
+#Nueva forma de trabajar con cadenas ADN
+
+def newADN(cadena):
+    """Cuenta cuantas bases hay de cada tipo
+    Argumento: 
+        cadena[str]: Cadena de ADN
+    Retorno:
+        -1: si el argh¿umento no es cadena de texto
+        -2: si la cadena de texto no es ADN
+        Diccionario A, T, C, G: Diccionario con el número de bases por tipo"""
+    if type(cadena) != str:
+        return -1
+    countA=0
+    countT=0
+    countG=0
+    countC=0
+    for base in cadena:
+        match base:
+            case "A" | "a": # El "|" funciona como or en no condicionales
+                countA += 1
+            case "T":
+                countT += 1
+            case "G":
+                countG += 1
+            case "C":
+                countG += 1
+            case _:
+                return -2
+    return {"A": countA, "T": countT, "C": countC, "G": countG}
+
+print(newADN("ATTGCCGATAGCGATAGTCG"))
