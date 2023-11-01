@@ -67,7 +67,7 @@ def createSequence(genetic_list):
                         case "U":
                             continue
                         case _:
-                            is_valid = False #it's not DNA or RNA
+                            valid = False #it's not DNA or RNA
                             break
                 if valid: #it's DNA or RNA
                     genetic_list.append(user)
