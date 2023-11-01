@@ -1,4 +1,10 @@
 def searchSequence(genetic_list,pattern):
+    """Search for identical matches of a pattern in a list.
+    Arguments:
+    genetic_list[list]: list fill with DNA or RNA sequences.
+    pattern[str]: pattern to search in the list
+    Return:
+    None"""
     while True:
         pattern=input("Type pattern: ").upper()    
         valid = True #is DNA or RNA?
