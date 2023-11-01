@@ -1,0 +1,66 @@
+import random
+def generateDNAoRNA(dnaLen, kind):
+    """Creates randomly sequences of RNA or DNA.
+       Arguments: 
+       dnaLen[int]: Length of the strand.
+       kind[str]: input "DNA" or "RNA" to chose the type.
+       Return: 
+       dnaString[str]: New sequence od DNA or RNA created""" 
+    if dnaLen < 0:
+        return -1
+    dnaString = ""
+    for i in range(dnaLen):
+        randomNumber = random.randint(1, 4)
+        if randomNumber == 1:
+            dnaString += "A"
+        elif randomNumber == 2:
+            dnaString += "C"
+        elif randomNumber == 3:
+            dnaString += "G"
+        else:
+            if kind == "ADN": 
+                dnaString += "T"
+            else:
+                dnaString += "U"
+
+    return dnaString
+
+def createSequence(genetic_list):
+    """Creates random sequences or adds prexisting ones given by the user to genetic_list
+    Arguments:
+    genetic_list[list]: list fill with DNA or RNA sequences.
+    Return:
+    genetic_list[list]: list fill with DNA pr RNA sequences."""
+    genetic_list=[]
+    while True:
+        auto=input("Create sequence automatically? [Y/N]: ")
+        if auto != "Y" and auto != "y" and auto != "N" and auto != "n":
+            print("Invalid input")
+        else:
+            if auto == "Y" or auto == "y":
+                kind=input("DNA or RNA strand?: ")
+                if kind != "DNA" and kind != "RNA":
+                    print("Invalid input")
+                else:
+                    dnalen=int(input("lenght of the sequence? (20 min): "))
+                    if dnalen < 20:
+                        print("Invalid input, 20 minimun")
+                    else:
+                        dnaString= generateDNAoRNA(dnalen, kind)
+                        genetic_list.append(dnaString)
+                        print("Sequence successfully added:", dnaString)
+                        return genetic_list
+            else: #Problema OJO
+                user=input("Enter DNA or RNA sequence: ")
+                chartrue=["A","T","C","G","U"] 
+                for char in user:
+                    if char not in chartrue: 
+                        print("Invalid DNA/RNA")
+                        break
+                    else:
+                        continue 
+                genetic_list.append(user)
+                print("Sequence successfully added:", user)
+                return genetic_list
+
+createSequence([])
