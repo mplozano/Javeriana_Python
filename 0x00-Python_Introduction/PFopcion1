@@ -18,7 +18,7 @@ def generateDNAoRNA(dnaLen, kind):
         elif randomNumber == 3:
             dnaString += "G"
         else:
-            if kind == "ADN": 
+            if kind == "DNA": 
                 dnaString += "T"
             else:
                 dnaString += "U"
