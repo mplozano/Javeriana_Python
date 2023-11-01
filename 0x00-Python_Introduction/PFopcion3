@@ -1,0 +1,34 @@
+def searchSequence(genetic_list,pattern):
+    while True:
+        pattern=input("Type pattern: ").upper()    
+        valid = True #is DNA or RNA?
+        index_list=[]
+        for char in pattern: #verification cycle
+            match char:
+                case "A":
+                    continue
+                case "T":
+                    continue
+                case "G":
+                    continue
+                case "C":
+                    continue
+                case "U":
+                    continue
+                case _:
+                    valid = False #it's not DNA or RNA
+                    break 
+        if valid:
+            for i in range(0,len(genetic_list)):
+                if genetic_list[i] == pattern:
+                    index_list.append(i)
+            if len(index_list) == 0:
+                print("No matches were found")
+                break
+            else:
+                print("Matches found at position(s):", index_list)
+                break
+        else:
+            print("Invalid sequence")   
+
+searchSequence(["ATTTCGAT", "ATTGC","AUUCG","AUUCG"], "")
