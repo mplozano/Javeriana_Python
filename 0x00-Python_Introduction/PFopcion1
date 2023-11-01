@@ -53,7 +53,7 @@ def createSequence(genetic_list):
         else: #answer = no
             while True:
                 user = input("Enter DNA or RNA sequence: ").upper() #question 2
-                is_valid = True #is DNA or RNA?
+                valid = True #is DNA or RNA?
                 for char in user: #verification cycle
                     match char:
                         case "A":
@@ -69,7 +69,7 @@ def createSequence(genetic_list):
                         case _:
                             is_valid = False #it's not DNA or RNA
                             break
-                if is_valid: #it's DNA or RNA
+                if valid: #it's DNA or RNA
                     genetic_list.append(user)
                     print("Sequence successfully added:", user)
                     return genetic_list
