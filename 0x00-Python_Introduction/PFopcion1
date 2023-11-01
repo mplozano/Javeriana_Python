@@ -33,45 +33,46 @@ def createSequence(genetic_list):
     genetic_list[list]: list filled with DNA or RNA sequences."""
     
     while True:
-        auto = input("Create sequence automatically? [Y/N]: ").upper()
-        while auto != "Y" and auto != "N":
-            print("Invalid input")
+        auto = input("Create sequence automatically? [Y/N]: ").upper() #question 0
+        while auto != "Y" and auto != "N": #cycle invalid question 0
+            print("Invalid input") 
             auto = input("Create sequence automatically? [Y/N]: ").upper()
-        if auto == "Y":
-            kind = input("DNA or RNA strand?: ").upper()
-            while kind != "DNA" and kind != "RNA":
-                print("Invalid input")
+        if auto == "Y": #automatic generator 
+            kind = input("DNA or RNA strand?: ").upper() #question 1
+            while kind != "DNA" and kind != "RNA": #cycle invalid question 1
+                print("Invalid input") 
                 kind = input("DNA or RNA strand?: ")
-            dnalen = int(input("Length of the sequence? (20 min): "))
-            while dnalen < 20:
+            dnalen = int(input("Length of the sequence? (20 min): ")) #question 1.1
+            while dnalen < 20: #cycle invalid question 1.1
                 print("Invalid input, 20 minimum")
                 dnalen = int(input("Length of the sequence? (20 min): "))
-            dnaString = generateDNAorRNA(dnalen, kind)
+            dnaString = generateDNAorRNA(dnalen, kind) 
             genetic_list.append(dnaString)
             print("Sequence successfully added:", dnaString)
             return genetic_list
-        else:
-            user = input("Enter DNA or RNA sequence: ").upper()
-            char_true = ["A", "T", "C", "G", "U"]
-            is_valid = True
-            for char in user:
-                match char:
-                    case "A":
-                        continue
-                    case "T":
-                        continue
-                    case "G":
-                        continue
-                    case "C":
-                        continue
-                    case "U":
-                        continue
-                    case _:
-                        print("Invalid DNA/RNA")
-                        is_valid = False
-                        break
-            if is_valid:
-                genetic_list.append(user)
-                print("Sequence successfully added:", user)
-                return genetic_list
+        else: #answer = no
+            while True:
+                user = input("Enter DNA or RNA sequence: ").upper() #question 2
+                is_valid = True #is DNA or RNA?
+                for char in user: #verification cycle
+                    match char:
+                        case "A":
+                            continue
+                        case "T":
+                            continue
+                        case "G":
+                            continue
+                        case "C":
+                            continue
+                        case "U":
+                            continue
+                        case _:
+                            is_valid = False #it's not DNA or RNA
+                            break
+                if is_valid: #it's DNA or RNA
+                    genetic_list.append(user)
+                    print("Sequence successfully added:", user)
+                    return genetic_list
+                else:
+                    print("Invalid DNA/RNA")
 createSequence([])
