@@ -1,0 +1,10 @@
+def deleteSequence(genetic_list):
+    if len(genetic_list) == 0:
+        print("ERROR: Empty list")
+        return genetic_list
+    else:
+        genetic_list.pop()
+        print("Last sequence successfully deleted")
+        return genetic_list
+
+print(deleteSequence([]))
