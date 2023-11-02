@@ -16,6 +16,16 @@ def compareDNA(dna_string, pattern):
     return porcentage
 
 def compareSequence(genetic_list,pattern,percent):
+    """With a given pattern the function looks for equel or similar sequences.
+    Those sequences must be the same lenght as the patter, if they aren't the
+    function wont evaluate their similarities.
+        Arguments:
+        genetic_list[list]: list fill with DNA or RNA sequences.
+        pattern[str]: pattern to compare each element of genetic_list.
+        percent[float]: percentage of similarity given by the user [0.0,1.0].
+        return:
+        None.
+    """
     while True:
         pattern=input("Type pattern: ").upper()   
         valid = True #is DNA or RNA?
