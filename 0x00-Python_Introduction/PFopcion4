@@ -1,0 +1,60 @@
+def compareDNA(dna_string, pattern):
+    """Compares a genetic sequence to a pattern. The result is the porcentage of similarity 
+    between the two.
+        Arguments: 
+        dna_string[str]: genetic sequence, part of genetic_list list.
+        pattern[str]: pattern to compare genetic_list[i] to.
+        Return: 
+        Porcentage[float]: Porcentage of similarity 
+        """
+    porcentage=0 
+    par=0 #
+    for i in range(0,len(dna_string)): #se mueva el index en un rango de 0 a la longitud de las cadenas
+        if dna_string[i] == pattern[i]: #comparación caracteres de los index recorridos
+            par+=1
+    porcentage=(par/len(pattern))
+    return porcentage
+
+def compareSequence(genetic_list,pattern,percent):
+    while True:
+        pattern=input("Type pattern: ").upper()   
+        valid = True #is DNA or RNA?
+        index_list=[]
+        for char in pattern: #verification cycle
+            match char:
+                case "A":
+                    continue
+                case "T":
+                    continue
+                case "G":
+                    continue
+                case "C":
+                    continue
+                case "U":
+                    continue
+                case _:
+                    valid = False #it's not DNA or RNA
+                    break 
+        if valid:
+            percent=float(input("Enter the desired percentage of similarity (0.0,1.0): "))
+            while not (0.0 <= percent <= 1.0):
+                print("Invalid porcentage")
+                percent=float(input("Enter the desired percentage of similarity (0.0,1.0): "))
+            for i in range (0,len(genetic_list)):
+                if len(pattern)!=len(genetic_list[i]):
+                    continue
+                else:
+                    dna_string=genetic_list[i]
+                    similar=compareDNA(dna_string,pattern)
+                    if similar >= percent:
+                        index_list.append(i)
+            if len(index_list)!= 0:
+                print("Matches found at position(s):", index_list)
+                break
+            else:
+                print("No matches were found")
+                break
+        else:
+            print("Invalid sequence")   
+                
+compareSequence(["ATTGCGAT","AUGCGAU","ATGCT","ATCGT","TTCCGT"],"",0)
