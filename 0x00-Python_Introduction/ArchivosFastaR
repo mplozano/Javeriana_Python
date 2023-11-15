@@ -1,0 +1,16 @@
+library(seqinr)
+
+#Agregar el archivo, ubicación y extensión
+archivo <- read.fasta("C:/Informática/Documentos de Apoyo BioPython/Documentos de Apoyo/ls_orchid.fasta")
+
+print(archivo)
+for (index in 1: length(archivo)){
+  seq <- archivo [[index]]
+  print (seq)
+}
+
+seqDinuc <- count(archivo[[7]],2)
+barplot(seqDinuc, xlab = "Bases", ylab = "Frecuencia", col = c("orange", "purple", "aquamarine", "lightgoldenrod1", 
+                                                                "blue", "red", "green", "#528B8B", "#8B3A62", "#6B8E23",  
+                                                                "#551A8B", "#D8BFD8", "#00F5FF", "#4682B4", "#EE9A49", 
+                                                                "#CD3700"))
