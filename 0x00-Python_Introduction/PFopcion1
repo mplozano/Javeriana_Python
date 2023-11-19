@@ -41,7 +41,7 @@ def createSequence(genetic_list):
             kind = input("DNA or RNA strand?: ").upper() #question 1
             while kind != "DNA" and kind != "RNA": #cycle invalid question 1
                 print("Invalid input") 
-                kind = input("DNA or RNA strand?: ")
+                kind = input("DNA or RNA strand?: ").upper()
             dnalen = int(input("Length of the sequence? (20 min): ")) #question 1.1
             while dnalen < 20: #cycle invalid question 1.1
                 print("Invalid input, 20 minimum")
