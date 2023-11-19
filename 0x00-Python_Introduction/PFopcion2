@@ -1,5 +1,10 @@
 def deleteSequence(genetic_list):
-    
+    """Deletes the last element of genetic_list.
+    Argument:
+        genetic_list[list]: list filled with DNA or RNA sequences.
+    Return:
+        genetic_list[list]: list filled with DNA or RNA sequences.
+    """
     if len(genetic_list) == 0:
         print("ERROR: Empty list")
         return genetic_list
