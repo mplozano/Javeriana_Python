@@ -1,0 +1,32 @@
+def geneticSequenceMenu(genetic_list):
+    while True:
+        print("-----Team Alfa Buena Maravilla Onda Dinamita Escuadrón Lobo-----")
+        print("-----App name-----")
+        print("-----Genetic Sequence Menu-----")
+        print (" 1. Create Genetic Sequence.","\n","2. Delete Genteic Sequence.","\n",
+        "3. Search Genetic Sequence.", "\n", "4. Compare Genetic Sequence.","\n",
+        "5. Build Complementary Genetic Sequence.","\n","6. Show Stored Genetic Sequences.","\n",
+        "7. Return to Previous Menu.")
+        optionGSM=input("Choose an option [1-7]: ")
+        if optionGSM == "1":
+            createSequence(genetic_list)
+        elif optionGSM == "2":
+            deleteSequence(genetic_list)
+        elif optionGSM == "3":
+            searchSequence(genetic_list,"")
+        elif optionGSM == "4":
+            compareSequence(genetic_list,"",0)
+        elif optionGSM == "5":
+            invertOrComplement(genetic_list)
+        elif optionGSM == "6":
+            if len(genetic_list) == 0:
+                print("Empty list")
+            else:
+                for elem in genetic_list:
+                    print(elem)
+        elif optionGSM == "7":
+            return genetic_list
+        else:
+            print("ERROR: Invalid input")
+
+print(geneticSequenceMenu([]))    
