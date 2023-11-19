@@ -1,4 +1,5 @@
 def deleteSequence(genetic_list):
+    
     if len(genetic_list) == 0:
         print("ERROR: Empty list")
         return genetic_list
