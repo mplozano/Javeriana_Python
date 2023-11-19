@@ -1,12 +1,12 @@
 def compareDNA(dna_string, pattern):
     """Compares a genetic sequence to a pattern. The result is the porcentage of similarity 
     between the two.
-        Arguments: 
-        dna_string[str]: genetic sequence, part of genetic_list list.
+    Arguments: 
+        dna_string[str]: genetic sequence, part of genetic_list.
         pattern[str]: pattern to compare genetic_list[i] to.
-        Return: 
+    Return: 
         Porcentage[float]: Porcentage of similarity 
-        """
+    """
     porcentage=0 
     par=0 #
     for i in range(0,len(dna_string)): #se mueva el index en un rango de 0 a la longitud de las cadenas
@@ -16,14 +16,14 @@ def compareDNA(dna_string, pattern):
     return porcentage
 
 def compareSequence(genetic_list,pattern,percent):
-    """With a given pattern the function looks for equel or similar sequences.
-    Those sequences must be the same lenght as the patter, if they aren't the
+    """With a given pattern the function looks for equal or similar sequences.
+    Those sequences must be the same lenght as the pattern, if they aren't the
     function wont evaluate their similarities.
-        Arguments:
-        genetic_list[list]: list fill with DNA or RNA sequences.
-        pattern[str]: pattern to compare each element of genetic_list.
+    Arguments:
+        genetic_list[list]: list filled with DNA or RNA sequences.
+        pattern[str]: pattern for comparing each element of genetic_list.
         percent[float]: percentage of similarity given by the user [0.0,1.0].
-        return:
+    return:
         None.
     """
     while True:
