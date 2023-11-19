@@ -1,0 +1,26 @@
+def mainMenu():
+    while True:
+        print("-----Team Alfa Buena Maravilla Onda Dinamita Escuadrón Lobo-----")
+        print("-----App name-----")
+        print("-----Main Menu-----")
+        print(" 1. What is COVID-19?","\n","2. What symptoms does COVID-19 cause?","\n",
+        "3. What is SARS-CoV-2?", "\n", "4. Genetic sequence of SARS-CoV-2.","\n",
+        "5.Analysis of Genetic Sequences.","\n","6. Close program.")
+        optionMM= input("Choose an option [1-6]: ")
+        if optionMM=="1":
+            print("Información 1")
+        elif optionMM=="2":
+            print("Información 2")
+        elif optionMM=="3":
+            print("Información 3")
+        elif optionMM=="4":
+            print("Información 4")
+        elif optionMM=="5":
+            geneticSequenceMenu([])
+        elif optionMM=="6":
+            print("End of the program")
+            break
+        else:
+            print("ERROR: Invalid input")
+
+mainMenu()
