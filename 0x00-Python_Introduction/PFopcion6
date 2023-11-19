@@ -1,0 +1,5 @@
+if len(genetic_list) == 0:
+    print("Empty list")
+else:
+    for elem in genetic_list:
+        print(elem)
