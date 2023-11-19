@@ -1,0 +1,52 @@
+def invertOrComplement(genetic_list):
+    """Creates the reverse or complementary sequence of the last element 
+    in genetic_list, depending on whether it is RNA or DNA.
+    Arguments:
+    genetic_list[list]: list fill with DNA or RNA sequences.
+    Return:
+    genetic_list[list]: same list with newly created complementary strand, 
+    or not (if empty)."""
+    if len(genetic_list) == 0:
+        print("Empty list")
+        return genetic_list
+    else:
+        index = len(genetic_list) -1
+        newSequence=""
+        if "U" in genetic_list[index]:
+            for base in genetic_list[index]:
+                match base:
+                    case "A":
+                        base = "T"
+                        newSequence += base
+                    case "U":
+                        base = "A"
+                        newSequence += base
+                    case "G":
+                        base = "C"
+                        newSequence += base
+                    case "C":
+                        base = "G"
+                        newSequence += base
+            genetic_list.append(newSequence)
+            print("Reverse Strand Creation Completed")
+            return genetic_list
+        else:
+            for base in genetic_list[index]:
+                match base:
+                    case "A":
+                        base = "T"
+                        newSequence += base
+                    case "T":
+                        base = "A"
+                        newSequence += base
+                    case "G":
+                        base = "C"
+                        newSequence += base
+                    case "C":
+                        base = "G"
+                        newSequence += base
+            genetic_list.append(newSequence)
+            print("Complementary Strand Creation Completed") 
+            return genetic_list
+
+invertOrComplement([])
