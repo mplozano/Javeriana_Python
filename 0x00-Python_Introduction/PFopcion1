@@ -1,10 +1,10 @@
 import random
 def generateDNAorRNA(dnaLen, kind):
     """Creates randomly sequences of RNA or DNA.
-       Arguments: 
+    Arguments: 
        dnaLen[int]: Length of the strand.
        kind[str]: input "DNA" or "RNA" to choose the type.
-       Return: 
+    Return: 
        dnaString[str]: New sequence of DNA or RNA created""" 
     if dnaLen < 0:
         return -1
@@ -28,9 +28,9 @@ def generateDNAorRNA(dnaLen, kind):
 def createSequence(genetic_list):
     """Creates random sequences or adds preexisting ones given by the user to genetic_list
     Arguments:
-    genetic_list[list]: list filled with DNA or RNA sequences.
+        genetic_list[list]: list filled with DNA or RNA sequences.
     Return:
-    genetic_list[list]: list filled with DNA or RNA sequences."""
+        genetic_list[list]: list filled with DNA or RNA sequences."""
     
     while True:
         auto = input("Create sequence automatically? [Y/N]: ").upper() #question 0
