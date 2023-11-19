@@ -3,9 +3,9 @@ def generateDNAorRNA(dnaLen, kind):
     """Creates randomly sequences of RNA or DNA.
        Arguments: 
        dnaLen[int]: Length of the strand.
-       kind[str]: input "DNA" or "RNA" to chose the type.
+       kind[str]: input "DNA" or "RNA" to choose the type.
        Return: 
-       dnaString[str]: New sequence od DNA or RNA created""" 
+       dnaString[str]: New sequence of DNA or RNA created""" 
     if dnaLen < 0:
         return -1
     dnaString = ""
