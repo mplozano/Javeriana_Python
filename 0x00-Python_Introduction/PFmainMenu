@@ -1,4 +1,5 @@
 def mainMenu():
+    genetic_list=[]
     while True:
         print("-----Team Alfa Buena Maravilla Onda Dinamita Escuadrón Lobo-----")
         print("-----App name-----")
@@ -16,7 +17,7 @@ def mainMenu():
         elif optionMM=="4":
             print("Información 4")
         elif optionMM=="5":
-            geneticSequenceMenu([])
+            genetic_list=geneticSequenceMenu(genetic_list)
         elif optionMM=="6":
             print("End of the program")
             break
