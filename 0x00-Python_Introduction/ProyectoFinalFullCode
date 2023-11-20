@@ -1,0 +1,338 @@
+import random
+#Option 1
+def generateDNAorRNA(dnaLen, kind):
+    """Creates randomly sequences of RNA or DNA.
+    Arguments: 
+       dnaLen[int]: Length of the strand.
+       kind[str]: input "DNA" or "RNA" to choose the type.
+    Return: 
+       dnaString[str]: New sequence of DNA or RNA created""" 
+    if dnaLen < 0:
+        return -1
+    dnaString = ""
+    for i in range(dnaLen):
+        randomNumber = random.randint(1, 4)
+        if randomNumber == 1:
+            dnaString += "A"
+        elif randomNumber == 2:
+            dnaString += "C"
+        elif randomNumber == 3:
+            dnaString += "G"
+        else:
+            if kind == "DNA": 
+                dnaString += "T"
+            else:
+                dnaString += "U"
+
+    return dnaString
+
+def createSequence(genetic_list):
+    """Creates random sequences or adds preexisting ones given by the user to genetic_list
+    Arguments:
+        genetic_list[list]: list filled with DNA or RNA sequences.
+    Return:
+        genetic_list[list]: list filled with DNA or RNA sequences."""
+    
+    while True:
+        auto = input("Create sequence automatically? [Y/N]: ").upper() #question 0
+        while auto != "Y" and auto != "N": #cycle invalid question 0
+            print("Invalid input") 
+            auto = input("Create sequence automatically? [Y/N]: ").upper()
+        if auto == "Y": #automatic generator 
+            kind = input("DNA or RNA strand?: ").upper() #question 1
+            while kind != "DNA" and kind != "RNA": #cycle invalid question 1
+                print("Invalid input") 
+                kind = input("DNA or RNA strand?: ").upper()
+            dnalen = int(input("Length of the sequence? (20 min.): ")) #question 1.1
+            while dnalen < 20: #cycle invalid question 1.1
+                print("Invalid input, 20 minimum")
+                dnalen = int(input("Length of the sequence? (20 min): "))
+            dnaString = generateDNAorRNA(dnalen, kind) 
+            genetic_list.append(dnaString)
+            print("Sequence successfully added:", dnaString)
+            return genetic_list
+        else: #answer = no
+            while True:
+                user = input("Enter DNA or RNA sequence: ").upper() #question 2
+                valid = True #is DNA or RNA?
+                for char in user: #verification cycle
+                    match char:
+                        case "A":
+                            continue
+                        case "T":
+                            continue
+                        case "G":
+                            continue
+                        case "C":
+                            continue
+                        case "U":
+                            continue
+                        case _:
+                            valid = False #it's not DNA or RNA
+                            break
+                if valid: #it's DNA or RNA
+                    genetic_list.append(user)
+                    print("Sequence successfully added:", user)
+                    return genetic_list
+                else:
+                    print("Invalid DNA/RNA")
+#Option 2
+def deleteSequence(genetic_list):
+    """Deletes the last element of genetic_list.
+    Argument:
+        genetic_list[list]: list filled with DNA or RNA sequences.
+    Return:
+        genetic_list[list]: list filled with DNA or RNA sequences.
+    """
+    if len(genetic_list) == 0:
+        print("ERROR: Empty list")
+        return genetic_list
+    else:
+        genetic_list.pop()
+        print("Last sequence successfully deleted")
+        return genetic_list
+#Option 3
+def searchSequence(genetic_list,pattern):
+    """Search for identical matches of a pattern in a genetic_list.
+    Arguments:
+        genetic_list[list]: list filled with DNA or RNA sequences.
+        pattern[str]: pattern to search in the list.
+    Return:
+        None"""
+    while True:
+        pattern=input("Type pattern: ").upper()    
+        valid = True #is DNA or RNA?
+        index_list=[]
+        for char in pattern: #verification cycle
+            match char:
+                case "A":
+                    continue
+                case "T":
+                    continue
+                case "G":
+                    continue
+                case "C":
+                    continue
+                case "U":
+                    continue
+                case _:
+                    valid = False #it's not DNA or RNA
+                    break 
+        if valid:
+            for i in range(0,len(genetic_list)):
+                if genetic_list[i] == pattern:
+                    index_list.append(i)
+            if len(index_list) == 0:
+                print("No matches were found")
+                break
+            else:
+                print("Matches found at position(s):", index_list)
+                break
+        else:
+            print("Invalid sequence")
+#Option 4
+def compareDNA(dna_string, pattern):
+    """Compares a genetic sequence to a pattern. The result is the porcentage of similarity 
+    between the two.
+    Arguments: 
+        dna_string[str]: genetic sequence, part of genetic_list.
+        pattern[str]: pattern to compare genetic_list[i] to.
+    Return: 
+        Porcentage[float]: Porcentage of similarity 
+    """
+    porcentage=0 
+    par=0 #
+    for i in range(0,len(dna_string)): 
+        if dna_string[i] == pattern[i]: 
+            par+=1
+    porcentage=(par/len(pattern))
+    return porcentage
+
+def compareSequence(genetic_list,pattern,percent):
+    """With a given pattern the function looks for equal or similar sequences.
+    Those sequences must be the same lenght as the pattern, if they aren't the
+    function wont evaluate their similarities.
+    Arguments:
+        genetic_list[list]: list filled with DNA or RNA sequences.
+        pattern[str]: pattern for comparing each element of genetic_list.
+        percent[float]: percentage of similarity given by the user [0.0,1.0].
+    return:
+        None.
+    """
+    while True:
+        pattern=input("Type pattern: ").upper()   
+        valid = True #is DNA or RNA?
+        index_list=[]
+        for char in pattern: #verification cycle
+            match char:
+                case "A":
+                    continue
+                case "T":
+                    continue
+                case "G":
+                    continue
+                case "C":
+                    continue
+                case "U":
+                    continue
+                case _:
+                    valid = False #it's not DNA or RNA
+                    break 
+        if valid:
+            percent=float(input("Enter the desired percentage of similarity (0.0,1.0): "))
+            while not (0.0 <= percent <= 1.0):
+                print("Invalid porcentage")
+                percent=float(input("Enter the desired percentage of similarity (0.0,1.0): "))
+            for i in range (0,len(genetic_list)):
+                if len(pattern)!=len(genetic_list[i]):
+                    continue
+                else:
+                    dna_string=genetic_list[i]
+                    similar=compareDNA(dna_string,pattern)
+                    if similar >= percent:
+                        index_list.append(i)
+            if len(index_list)!= 0:
+                print("Matches found at position(s):", index_list)
+                break
+            else:
+                print("No matches were found")
+                break
+        else:
+            print("Invalid sequence")   
+#Option 5                
+def invertOrComplement(genetic_list):
+    """Creates the reverse or complementary sequence of the last element 
+    in genetic_list, depending on whether it is RNA or DNA.
+    Arguments:
+        genetic_list[list]: list filled with DNA or RNA sequences.
+    Return:
+        genetic_list[list]: same list with newly created complementary strand, 
+        or not (if empty)."""
+    if len(genetic_list) == 0:
+        print("Empty list")
+        return genetic_list
+    else:
+        index = len(genetic_list) -1
+        newSequence=""
+        if "U" in genetic_list[index]:
+            for base in genetic_list[index]:
+                match base:
+                    case "A":
+                        base = "T"
+                        newSequence += base
+                    case "U":
+                        base = "A"
+                        newSequence += base
+                    case "G":
+                        base = "C"
+                        newSequence += base
+                    case "C":
+                        base = "G"
+                        newSequence += base
+            genetic_list.append(newSequence)
+            print("Reverse Strand Creation Completed")
+            return genetic_list
+        else:
+            for base in genetic_list[index]:
+                match base:
+                    case "A":
+                        base = "T"
+                        newSequence += base
+                    case "T":
+                        base = "A"
+                        newSequence += base
+                    case "G":
+                        base = "C"
+                        newSequence += base
+                    case "C":
+                        base = "G"
+                        newSequence += base
+            genetic_list.append(newSequence)
+            print("Complementary Strand Creation Completed") 
+            return genetic_list
+#Secundary menu
+def geneticSequenceMenu(genetic_list):
+    while True:
+        print("-----Team Alfa Buena Maravilla Onda Dinamita Escuadrón Lobo-----")
+        print("-----COVGEN-----")
+        print("-----Genetic Sequence Menu-----")
+        print (" 1. Create Genetic Sequence.","\n","2. Delete Genetic Sequence.","\n",
+        "3. Search Genetic Sequence.", "\n", "4. Compare Genetic Sequence.","\n",
+        "5. Build Complementary Genetic Sequence.","\n","6. Show Stored Genetic Sequences.","\n",
+        "7. Return to Previous Menu.")
+        optionGSM=input("Choose an option [1-7]: ")
+        if optionGSM == "1":
+            createSequence(genetic_list)
+        elif optionGSM == "2":
+            deleteSequence(genetic_list)
+        elif optionGSM == "3":
+            searchSequence(genetic_list,"")
+        elif optionGSM == "4":
+            compareSequence(genetic_list,"",0)
+        elif optionGSM == "5":
+            invertOrComplement(genetic_list)
+        elif optionGSM == "6":
+            if len(genetic_list) == 0:
+                print("Empty list")
+            else:
+                for elem in genetic_list:
+                    print(elem)
+        elif optionGSM == "7":
+            return genetic_list
+        else:
+            print("ERROR: Invalid input")
+#Main manu
+def mainMenu():
+    genetic_list=[]
+    while True:
+        print("-----Team Alfa Buena Maravilla Onda Dinamita Escuadrón Lobo-----")
+        print("-----COVGEN-----")
+        print("-----Main Menu-----")
+        print(" 1. What is COVID-19?","\n","2. What symptoms does COVID-19 cause?","\n",
+        "3. What is SARS-CoV-2?", "\n", "4. Genetic sequence of SARS-CoV-2.","\n",
+        "5.Analysis of Genetic Sequences.","\n","6. Close program.")
+        optionMM= input("Choose an option [1-6]: ")
+        if optionMM=="1":
+            info1= """
+        1. What is COVID-19?
+        Is an infectious disease caused by a novel coronavirus characterized by acute respiratory
+        impairment as a result of the virus severe acute respiratory syndrome coronavirus 2
+        (SARS-CoV-2).
+        """
+            print(info1)
+        elif optionMM=="2":
+            info2="""
+        2. What symptoms does COVID-19 cause?
+        Symptoms comprise fever, cough, fatigue, shortness of breath, and loss of smell and taste. 
+        While the majority of cases result in mild symptoms, some progress to acute respiratory 
+        distress syndrome (ARDS) likely precipitated by a cytokine storm, failure in organs, septic 
+        shock, and blood clots. In specific patient groups, particularly the elderly and those with 
+        chronic health conditions, symptoms may progress into pneumonia, with tightness-chest pain 
+        and fatigue. In some cases, there are not symptoms.
+        """
+            print(info2)
+        elif optionMM=="3":
+            info3="""
+        3. What is SARS-CoV-2?
+        Is a RNA virus from the family Coronaviridae called Severe Acute Respiratory Syndrome 
+        Coronavirus 2 that causes the disease of COVID-19. Is classified as a Betacoronavirus 
+        and have high mutation rates that allows it to invade a wide range of hosts.
+        """
+            print(info3)
+        elif optionMM=="4":
+            info4= """
+        4. Genetic sequence of SARS-CoV-2 (200)
+        AGATCTGTTCTCTAAACGAACTTTAAAATCTGTGTGGCTGTCACTCGGCTGCATGCTTAGTGCACTCACGCAGTATAATTAATAACTAATT
+        ACTGTCGTTGACAGGACACGAGTAACTCGTCTATCTTCTGCAGGCTGCTTACGGTTTCGTCCGTGTTGCAGCCGATCATCAGCACATCTAG
+        GTTTTGTCCGGGTGTGAC
+        """
+            print(info4)
+        elif optionMM=="5":
+            genetic_list=geneticSequenceMenu(genetic_list)
+        elif optionMM=="6":
+            print("End of the program")
+            break
+        else:
+            print("ERROR: Invalid input")
+
+mainMenu()   
